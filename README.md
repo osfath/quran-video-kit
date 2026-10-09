@@ -7,7 +7,7 @@
 
 <div dir="rtl">
 
-# 🕌 حزمة فيديو التلاوة — Quran Video Kit
+# حزمة فيديو التلاوة — Quran Video Kit
 
 حزمة جاهزة تصنع **فيديو تلاوة كامل** من ملف صوت (أو رابط يوتيوب) بدون برنامج مونتاج:
 
@@ -19,7 +19,7 @@
 
 > مثال حقيقي منفَّذ بالحزمة: سورة الكهف – د. محمد بن أحمد الحسن → `examples/kahf-alhassan/`
 
-## 🖼️ عينات من المخرجات
+## عينات من المخرجات
 
 <p align="center">
   <img src="docs/images/video-tafsir-2.jpg" alt="لقطة من الفيديو: الآية بالرسم العثماني مع صندوق المختصر في التفسير" width="100%">
@@ -35,13 +35,13 @@
 |---|---|---|
 | <img src="examples/kahf-alhassan/thumbnails/1-blue.jpg" alt="ثمنيل أزرق"> | <img src="examples/kahf-alhassan/thumbnails/2-ivory.jpg" alt="ثمنيل عاجي"> | <img src="examples/kahf-alhassan/thumbnails/3-green-cave.jpg" alt="ثمنيل أخضر الكهف"> |
 
-🎬 معاينة بالصوت (20 ثانية): [`examples/kahf-alhassan/preview-20s.mp4`](examples/kahf-alhassan/preview-20s.mp4)
+**معاينة بالصوت (20 ثانية):** [`examples/kahf-alhassan/preview-20s.mp4`](examples/kahf-alhassan/preview-20s.mp4)
 
 **للوكيل (Agent):** ابدأ بـ [`CLAUDE.md`](CLAUDE.md) ثم [`GUIDE.md`](GUIDE.md) — الدليل المفصّل خطوة بخطوة.
 
 ---
 
-## 🗺️ الخريطة
+## الخريطة
 
 ```
               ┌──────────────┐     ┌─────────────────────┐
@@ -72,7 +72,7 @@
 | 08 الثمنيل | `pipeline/s08_thumbs.py` | `output/thumbnails/*.jpg|png` |
 | الكل | `pipeline/run.py` | يشغّل الخطوات بالترتيب مع ذاكرة مؤقتة لكل خطوة |
 
-## 📁 محتوى الحزمة
+## محتوى الحزمة
 
 ```
 quran-video-kit/
@@ -91,7 +91,7 @@ quran-video-kit/
 └── examples/         مخرجات الكهف المرجعية (SRT · ثمنيل · معاينة · تفسير)
 ```
 
-## ⚡ البدء السريع (ويندوز)
+## البدء السريع (ويندوز)
 
 ```powershell
 # 1) مرة واحدة على أي جهاز جديد
@@ -109,7 +109,7 @@ python -I pipeline\run.py projects\my-sura\config.json
 python -I pipeline\run.py projects\my-sura\config.json --from 7 --to 7 --full
 ```
 
-## 🔌 بروكسي ترجمة يوتيوب (توفير التوكن)
+## بروكسي ترجمة يوتيوب (توفير التوكن)
 
 ```powershell
 python -I tools\captions_proxy.py --port 8765
