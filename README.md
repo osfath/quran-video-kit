@@ -1,3 +1,10 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/brand/logo-dark.svg">
+    <img src="assets/brand/logo.svg" alt="عُدَّة فيديو القرآن الكريم — Quran Kareem Video Kit" width="560">
+  </picture>
+</p>
+
 <div dir="rtl">
 
 # 🕌 حزمة فيديو التلاوة — Quran Video Kit
@@ -11,6 +18,24 @@
 - **3 ثمنيلات** معتمدة (أزرق · عاجي · أخضر الكهف) بمقاس يوتيوب.
 
 > مثال حقيقي منفَّذ بالحزمة: سورة الكهف – د. محمد بن أحمد الحسن → `examples/kahf-alhassan/`
+
+## 🖼️ عينات من المخرجات
+
+<p align="center">
+  <img src="docs/images/video-tafsir-2.jpg" alt="لقطة من الفيديو: الآية بالرسم العثماني مع صندوق المختصر في التفسير" width="100%">
+</p>
+
+| التفسير يُكتب حرفًا حرفًا | التصميم الكلاسيكي (بدون تفسير) |
+|---|---|
+| <img src="docs/images/typing.gif" alt="المختصر في التفسير يُكتب حرفًا حرفًا"> | <img src="docs/images/video-classic.jpg" alt="التصميم الكلاسيكي: اسم السورة كبير مع الآية واسم القارئ"> |
+
+**الثمنيلات الثلاثة المعتمدة** (1280×720):
+
+| أزرق | عاجي | أخضر الكهف |
+|---|---|---|
+| <img src="examples/kahf-alhassan/thumbnails/1-blue.jpg" alt="ثمنيل أزرق"> | <img src="examples/kahf-alhassan/thumbnails/2-ivory.jpg" alt="ثمنيل عاجي"> | <img src="examples/kahf-alhassan/thumbnails/3-green-cave.jpg" alt="ثمنيل أخضر الكهف"> |
+
+🎬 معاينة بالصوت (20 ثانية): [`examples/kahf-alhassan/preview-20s.mp4`](examples/kahf-alhassan/preview-20s.mp4)
 
 **للوكيل (Agent):** ابدأ بـ [`CLAUDE.md`](CLAUDE.md) ثم [`GUIDE.md`](GUIDE.md) — الدليل المفصّل خطوة بخطوة.
 
@@ -57,6 +82,7 @@ quran-video-kit/
 ├── templates/
 │   ├── video/        design.html (تصميم الفيديو) · measure.html (قياس النص)
 │   └── thumbnails/   1-blue · 2-ivory · 3-green-cave  (+ extra/gold-friday-kahf)
+├── assets/brand/     logo.svg · logo-dark.svg (شعار المستودع)
 ├── assets/fonts/     hafs (مصحف حفص v18) · thmanyah (يُنزَّل من مصدره الرسمي — لا يُعاد توزيعه)
 ├── vendor/           quran-data-kfgqpc · tafsir-mcp   (نسخ من المشاريع الأصلية)
 ├── skills/           quran-recitation-video · video-ad-editor (سكيل الإعلانات)
