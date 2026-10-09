@@ -43,6 +43,8 @@
 
 ## الخريطة
 
+<div dir="ltr">
+
 ```
               ┌──────────────┐     ┌─────────────────────┐
   صوت/يوتيوب ─►│ 01 التوقيت    │────►│ 02 المطابقة مع المصحف │──► SRT (مقاطع + آيات)
@@ -59,6 +61,8 @@
                                   08 الثمنيلات (3 تصاميم)
 ```
 
+</div>
+
 | الخطوة | الملف | المُخرَج |
 |---|---|---|
 | 00 فحص البيئة | `pipeline/s00_check.py` | تقرير OK/FAIL مع طريقة الإصلاح |
@@ -69,10 +73,12 @@
 | 05 الترجمة | `pipeline/s05_subs.py` | `work/full.ass` |
 | 06 الخلفية | `pipeline/s06_bgloop.py` | `work/bgloop.mp4` |
 | 07 الإخراج | `pipeline/s07_render.py` | `output/*.mp4` |
-| 08 الثمنيل | `pipeline/s08_thumbs.py` | `output/thumbnails/*.jpg|png` |
+| 08 الثمنيل | `pipeline/s08_thumbs.py` | `output/thumbnails/*.jpg` · `*.png` |
 | الكل | `pipeline/run.py` | يشغّل الخطوات بالترتيب مع ذاكرة مؤقتة لكل خطوة |
 
 ## محتوى الحزمة
+
+<div dir="ltr">
 
 ```
 quran-video-kit/
@@ -91,7 +97,11 @@ quran-video-kit/
 └── examples/         مخرجات الكهف المرجعية (SRT · ثمنيل · معاينة · تفسير)
 ```
 
+</div>
+
 ## البدء السريع (ويندوز)
+
+<div dir="ltr">
 
 ```powershell
 # 1) مرة واحدة على أي جهاز جديد
@@ -109,12 +119,19 @@ python -I pipeline\run.py projects\my-sura\config.json
 python -I pipeline\run.py projects\my-sura\config.json --from 7 --to 7 --full
 ```
 
+</div>
+
 ## بروكسي ترجمة يوتيوب (توفير التوكن)
+
+<div dir="ltr">
 
 ```powershell
 python -I tools\captions_proxy.py --port 8765
 # GET http://127.0.0.1:8765/captions?v=VIDEO_ID&lang=ar&save=<path\words.json>
 ```
+
+</div>
+
 يحفظ توقيتات الكلمات مباشرة في ملف ويُرجع سطرًا واحدًا `{"saved":…, "count":…}` — لا يمر النص على المحادثة. التفاصيل في `GUIDE.md §6`.
 
 ## المشاريع الأصلية والإسناد
