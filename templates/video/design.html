@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+@font-face { font-family: Hafs; src: url("fonts/hafs.18.ttf"); }
+@font-face { font-family: ThSansB; src: url("fonts/thmanyahsans12_bold.otf"); }
+@font-face { font-family: ThSans; src: url("fonts/thmanyahsans12_medium.otf"); }
+@font-face { font-family: NameFont; src: url("fonts/thmanyahsans12_black.otf"); }
+/* ---- placeholders filled by pipeline/s04_layers.py:
+   LAYOUT (tafsir|classic) · SURA_TITLE · META · TAGLINE · TAFSIR_TITLE · RECITER_NAME ---- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1920px; height: 1080px; overflow: hidden; background: transparent; }
+.stage { position: relative; width: 1920px; height: 1080px; overflow: hidden; }
+.layer { position: absolute; inset: 0; }
+body:not(.bg) .only-bg, body:not(.fg) .only-fg, body:not(.pat) .only-pat, body:not(.rays) .only-rays { display: none !important; }
+.base { position: absolute; inset: 0;
+  background:
+    radial-gradient(900px 700px at 1530px 380px, rgba(90,160,235,.45), transparent 70%),
+    radial-gradient(1100px 800px at 380px 300px, rgba(30,80,160,.35), transparent 70%),
+    linear-gradient(180deg, #061633 0%, #0a2550 55%, #04102a 100%); }
+#name path { fill: url(#gold); }
+.reciter { position: absolute; left: 1060px; top: 30px; height: 830px;
+  filter: drop-shadow(-18px 20px 30px rgba(0,0,0,.55)); }
+.namebox { position: absolute; left: 1150px; top: 880px; width: 720px; height: 172px; }
+.namebox svg { width: 100%; height: 100%; filter: drop-shadow(0 4px 10px rgba(0,0,0,.6)); }
+.sura { position: absolute; left: 50px; top: 878px; width: 720px; height: 172px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: Hafs; font-size: 112px; color: transparent;
+  background: linear-gradient(180deg, #fff6d6 0%, #f1cf7a 40%, #b98a2e 75%, #f6dc93 100%);
+  -webkit-background-clip: text; background-clip: text;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,.6)); }
+/* tafsir panel */
+.panel { position: absolute; left: 60px; top: 56px; width: 960px; height: 590px; border-radius: 26px;
+  background: linear-gradient(180deg, rgba(8,26,58,.78), rgba(4,16,40,.86));
+  border: 2px solid rgba(233,195,110,.75);
+  box-shadow: inset 0 0 0 8px rgba(233,195,110,.08), 0 24px 50px rgba(0,0,0,.45);
+  backdrop-filter: blur(6px); }
+.panel .head { position: absolute; right: 36px; left: 36px; top: 22px; height: 64px;
+  display: flex; align-items: center; justify-content: space-between; }
+.panel .title { font-family: ThSansB; font-size: 36px; color: #f1cf7a; display: flex; align-items: center; gap: 14px; }
+.panel .rule { position: absolute; right: 36px; left: 36px; top: 92px; height: 2px;
+  background: linear-gradient(270deg, #e9c36e, rgba(233,195,110,.15)); }
+.panel .src { font-family: ThSans; font-size: 22px; color: #8fb0dc; }
+/* reciter name typed in Thmanyah Sans Black when no calligraphy SVG was supplied */
+.namebox .name-text { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+  font-family: NameFont; font-size: 84px; white-space: nowrap; color: transparent;
+  background: linear-gradient(180deg, #fff3c9 0%, #eac46c 40%, #b8892f 75%, #f3d78c 100%);
+  -webkit-background-clip: text; background-clip: text;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,.6)); }
+/* classic layout (no tafsir): big title on the left, small title hidden */
+.big-title { position: absolute; left: 110px; top: 175px; width: 860px; text-align: center; }
+.big-title .t { font-family: Hafs; font-size: 170px; line-height: 1.15; color: transparent;
+  background: linear-gradient(180deg, #fff6d6 0%, #f1cf7a 40%, #b98a2e 75%, #f6dc93 100%);
+  -webkit-background-clip: text; background-clip: text; filter: drop-shadow(0 6px 18px rgba(0,0,0,.55)); }
+.big-title .k { font-family: ThSans; font-size: 38px; color: #cfe3ff; margin-top: 10px; }
+.big-title .m { font-family: ThSans; font-size: 28px; color: #9fbbe0; margin-top: 16px; }
+.stage.tafsir .big-title, .stage.classic .panel, .stage.classic .sura { display: none; }
+</style>
+</head>
+<body>
+<div class="stage {{LAYOUT}}">
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <linearGradient id="gold" gradientUnits="userSpaceOnUse" x1="0" y1="554" x2="0" y2="1397">
+      <stop offset="0" stop-color="#fff3c9"/><stop offset=".35" stop-color="#eac46c"/>
+      <stop offset=".7" stop-color="#b8892f"/><stop offset="1" stop-color="#f3d78c"/>
+    </linearGradient>
+    <linearGradient id="goldH" x1="0" x2="1">
+      <stop offset="0" stop-color="#c99a3c" stop-opacity="0"/><stop offset=".15" stop-color="#e9c36e"/>
+      <stop offset=".5" stop-color="#fff0c2"/><stop offset=".85" stop-color="#e9c36e"/>
+      <stop offset="1" stop-color="#c99a3c" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="goldV" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff0c2"/><stop offset=".5" stop-color="#d4a650"/><stop offset="1" stop-color="#8a6420"/>
+    </linearGradient>
+    <pattern id="stars" width="140" height="140" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="#9cc6ff" stroke-width="1.3">
+        <rect x="40" y="40" width="60" height="60"/>
+        <rect x="40" y="40" width="60" height="60" transform="rotate(45 70 70)"/>
+        <circle cx="70" cy="70" r="14"/>
+        <path d="M0 70H28M112 70H140M70 0V28M70 112V140"/>
+      </g>
+    </pattern>
+    <radialGradient id="archGlow" cx=".5" cy=".42" r=".65">
+      <stop offset="0" stop-color="#e8f3ff" stop-opacity=".85"/>
+      <stop offset=".35" stop-color="#7fb4ec" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#0b2a5c" stop-opacity=".75"/>
+    </radialGradient>
+    <g id="rosette">
+      <circle r="62" fill="#071a3d" stroke="url(#goldV)" stroke-width="3"/>
+      <circle r="52" fill="none" stroke="#e9c36e" stroke-width="1.2" opacity=".7"/>
+      <g fill="url(#goldV)"><rect x="-30" y="-30" width="60" height="60"/><rect x="-30" y="-30" width="60" height="60" transform="rotate(45)"/></g>
+      <g fill="#0b2a5c"><rect x="-22" y="-22" width="44" height="44"/><rect x="-22" y="-22" width="44" height="44" transform="rotate(45)"/></g>
+      <circle r="11" fill="url(#goldV)"/>
+      <g fill="#e9c36e"><circle cx="0" cy="-62" r="4"/><circle cx="0" cy="62" r="4"/><circle cx="-62" cy="0" r="4"/><circle cx="62" cy="0" r="4"/></g>
+    </g>
+  </defs>
+</svg>
+
+<!-- ===== background-only layers ===== -->
+<div class="base only-bg"></div>
+
+<svg class="only-pat" width="2060" height="1080" style="position:absolute;left:0;top:0">
+  <rect width="2060" height="1080" fill="url(#stars)" opacity=".09"/>
+</svg>
+
+<svg class="only-rays" width="1600" height="1600" style="position:absolute;left:0;top:0">
+  <defs><radialGradient id="rayfade" cx=".5" cy=".5" r=".5">
+    <stop offset="0" stop-color="#fff" stop-opacity="1"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    <mask id="rm"><rect width="1600" height="1600" fill="url(#rayfade)"/></mask></defs>
+  <g mask="url(#rm)" fill="#cfe6ff" opacity=".22">
+    <path d="M800 800 L760 0 L840 0Z"/><path d="M800 800 L1600 700 L1600 820Z" />
+    <path d="M800 800 L1300 0 L1420 60Z"/><path d="M800 800 L200 0 L320 0Z"/>
+    <path d="M800 800 L0 600 L0 720Z"/><path d="M800 800 L1600 1300 L1500 1400Z"/>
+    <path d="M800 800 L300 1600 L180 1540Z"/><path d="M800 800 L900 1600 L780 1600Z"/>
+    <path d="M800 800 L1600 250 L1600 360Z"/><path d="M800 800 L0 1150 L0 1260Z"/>
+  </g>
+</svg>
+
+<!-- ===== foreground ===== -->
+<div class="only-fg">
+<svg class="layer" width="1920" height="1080">
+  <defs>
+    <path id="arch" d="M1250 720 V330 C1250 210 1360 130 1530 70 C1700 130 1810 210 1810 330 V720 Z"/>
+    <clipPath id="archClip"><use href="#arch"/></clipPath>
+  </defs>
+  <use href="#arch" fill="url(#archGlow)"/>
+  <g clip-path="url(#archClip)"><rect x="1250" y="60" width="560" height="680" fill="url(#stars)" opacity=".18"/></g>
+  <path d="M1232 720 V326 C1232 198 1350 112 1530 48 C1710 112 1828 198 1828 326 V720" fill="none" stroke="url(#goldV)" stroke-width="7"/>
+  <use href="#arch" fill="none" stroke="#e9c36e" stroke-width="2" opacity=".8"/>
+  <circle cx="1530" cy="40" r="10" fill="url(#goldV)"/>
+  <path d="M1530 10 L1538 30 L1530 26 L1522 30Z" fill="#f3d78c"/>
+</svg>
+
+<img class="reciter" src="reciter.png">
+
+<svg class="layer" width="1920" height="1080">
+  <defs>
+    <linearGradient id="band" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d2c61" stop-opacity=".97"/>
+      <stop offset=".5" stop-color="#061738" stop-opacity=".98"/>
+      <stop offset="1" stop-color="#0d2c61" stop-opacity=".97"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="690" width="1920" height="170" fill="url(#band)"/>
+  <rect x="0" y="690" width="1920" height="170" fill="url(#stars)" opacity=".05"/>
+  <rect x="0" y="684" width="1920" height="4" fill="url(#goldH)"/>
+  <rect x="0" y="862" width="1920" height="4" fill="url(#goldH)"/>
+  <rect x="0" y="694" width="1920" height="1" fill="url(#goldH)" opacity=".6"/>
+  <rect x="0" y="856" width="1920" height="1" fill="url(#goldH)" opacity=".6"/>
+  <use href="#rosette" x="95" y="775"/>
+  <use href="#rosette" x="1825" y="775"/>
+</svg>
+
+<div class="panel">
+  <div class="head">
+    <div class="title">
+      <svg width="30" height="30" viewBox="-15 -15 30 30"><g fill="url(#goldV)"><rect x="-9" y="-9" width="18" height="18"/><rect x="-9" y="-9" width="18" height="18" transform="rotate(45)"/></g></svg>
+      {{TAFSIR_TITLE}}
+    </div>
+  </div>
+  <div class="rule"></div>
+</div>
+
+<div class="big-title">
+  <div class="t">{{SURA_TITLE}}</div>
+  <div class="k">{{TAGLINE}}</div>
+  <div class="m">{{META}}</div>
+</div>
+
+<div class="sura">{{SURA_TITLE}}</div>
+<div class="namebox">{{RECITER_NAME}}</div>
+</div>
+
+</div>
+<script>document.body.className = (location.hash || "#fg").slice(1);</script>
+<script>
+/* shrink the typed reciter name (Thmanyah fallback) so it never overflows */
+document.fonts.ready.then(() => {
+  for (const el of document.querySelectorAll('.fit')) {
+    let fs = parseFloat(getComputedStyle(el).fontSize);
+    while (el.scrollWidth > el.clientWidth + 2 && fs > 30) { fs -= 3; el.style.fontSize = fs + 'px'; }
+  }
+});
+</script>
+</body>
+</html>

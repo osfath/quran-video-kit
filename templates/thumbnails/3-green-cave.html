@@ -1,0 +1,72 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><style>
+@font-face { font-family: NameFont; src: url("fonts/thmanyahsans12_black.otf"); }
+@font-face { font-family: Hafs; src: url("fonts/hafs.18.ttf"); }
+@font-face { font-family: ThSans; src: url("fonts/thmanyahsans12_black.otf"); }
+@font-face { font-family: ThSansM; src: url("fonts/thmanyahsans12_bold.otf"); }
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:1920px; height:1080px; overflow:hidden; }
+.stage { position:relative; width:1920px; height:1080px; overflow:hidden; }
+.layer { position:absolute; inset:0; }
+.namebox svg { width:100%; height:100%; }
+
+.stage { background: linear-gradient(180deg,#03161a,#010809); }
+#name path { fill:#ffffff; }
+.reciter { position:absolute; left:880px; top:140px; height:1040px;
+  filter: drop-shadow(0 0 3px rgba(190,255,240,.8)) drop-shadow(0 0 36px rgba(120,230,210,.35)) drop-shadow(-30px 30px 40px rgba(0,0,0,.85)); }
+.left { position:absolute; left:30px; top:100px; width:760px; text-align:center; }
+.small { font-family:Hafs; font-size:125px; color:#bff3e6; line-height:1; text-shadow:0 0 30px rgba(120,230,210,.5); }
+.big { font-family:Hafs; font-size:305px; line-height:1.02; color:transparent; background:linear-gradient(180deg,#fffbe8 0%,#ffe39a 30%,#e2a93f 62%,#9c6a1c 82%,#ffe7a6 100%);
+ -webkit-background-clip:text; background-clip:text;
+  filter: drop-shadow(0 5px 0 #3a2606) drop-shadow(0 0 60px rgba(255,200,100,.35)); }
+.verse { font-family:Hafs; font-size:56px; color:#d9fff6; margin-top:8px; opacity:.95; text-shadow:0 4px 14px #000; }
+.namebox { position:absolute; left:60px; top:860px; width:700px; height:150px; filter:drop-shadow(0 0 18px rgba(120,230,210,.45)); }
+.num { position:absolute; left:40px; top:40px; font-family:ThSans; font-size:30px; color:#7fd8c4; letter-spacing:2px; }
+.namebox .name-text { width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-family:NameFont; font-size:110px; white-space:nowrap; color:#fff; }
+</style></head><body><div class="stage"><svg width="0" height="0" style="position:absolute"><defs>
+<linearGradient id="gold" gradientUnits="userSpaceOnUse" x1="0" y1="554" x2="0" y2="1397">
+ <stop offset="0" stop-color="#fffbe8"/><stop offset=".35" stop-color="#ffe39a"/><stop offset=".7" stop-color="#d9a13d"/><stop offset="1" stop-color="#ffe7a6"/></linearGradient>
+<linearGradient id="green" gradientUnits="userSpaceOnUse" x1="0" y1="554" x2="0" y2="1397">
+ <stop offset="0" stop-color="#1d6b4f"/><stop offset="1" stop-color="#0b3b2b"/></linearGradient>
+<linearGradient id="goldV" x1="0" y1="0" x2="0" y2="1">
+ <stop offset="0" stop-color="#fff0c2"/><stop offset=".5" stop-color="#d4a650"/><stop offset="1" stop-color="#8a6420"/></linearGradient>
+<pattern id="stars" width="140" height="140" patternUnits="userSpaceOnUse"><g fill="none" stroke="currentColor" stroke-width="1.4">
+ <rect x="40" y="40" width="60" height="60"/><rect x="40" y="40" width="60" height="60" transform="rotate(45 70 70)"/>
+ <circle cx="70" cy="70" r="14"/><path d="M0 70H28M112 70H140M70 0V28M70 112V140"/></g></pattern>
+</defs></svg>
+<svg class="layer" width="1920" height="1080">
+  <defs>
+    <radialGradient id="mouth" cx=".5" cy=".55" r=".6">
+      <stop offset="0" stop-color="#fff6d8"/><stop offset=".25" stop-color="#ffd27a"/>
+      <stop offset=".55" stop-color="#2a8f80" stop-opacity=".8"/><stop offset="1" stop-color="#03161a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rock" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a2a2c"/><stop offset="1" stop-color="#020b0c"/></linearGradient>
+  </defs>
+  <ellipse cx="1440" cy="560" rx="560" ry="620" fill="url(#mouth)" opacity=".85"/>
+  <!-- cave rock frame -->
+  <path d="M0 0 H1920 V1080 H1890 C1900 880 1930 640 1850 470 C1790 330 1740 200 1610 120 C1520 70 1380 60 1270 110
+           C1140 170 1060 290 1020 420 C980 560 990 760 1010 1080 H0 Z" fill="url(#rock)" opacity=".92"/>
+  <path d="M1010 1080 C990 760 980 560 1020 420 C1060 290 1140 170 1270 110 C1380 60 1520 70 1610 120 C1740 200 1790 330 1850 470 C1930 640 1900 880 1890 1080"
+        fill="none" stroke="#e9c36e" stroke-width="5" opacity=".75"/>
+  <g fill="#fff3c9">
+    <circle cx="300" cy="80" r="2"/><circle cx="520" cy="40" r="1.5"/><circle cx="760" cy="110" r="2"/><circle cx="900" cy="60" r="1.5"/>
+    <circle cx="160" cy="180" r="1.5"/><circle cx="640" cy="190" r="1"/>
+  </g>
+</svg>
+<img class="reciter" src="reciter.png">
+<div class="left">
+  <div class="small">سُورَةُ</div>
+  <div class="big fit">{{SURA_NAME}}</div>
+  <div class="verse fit">{{VERSE}}</div>
+</div>
+<div class="namebox">{{RECITER_NAME}}</div>
+</div><script>
+/* shrink long titles so they never overflow their box */
+document.fonts.ready.then(() => {
+  for (const el of document.querySelectorAll('.fit')) {
+    el.style.whiteSpace = 'nowrap';
+    let fs = parseFloat(getComputedStyle(el).fontSize);
+    while (el.scrollWidth > el.clientWidth + 2 && fs > 40) { fs -= 4; el.style.fontSize = fs + 'px'; }
+  }
+});
+</script>
+</body></html>

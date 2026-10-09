@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+@font-face { font-family: NameFont; src: url("fonts/thmanyahsans12_black.otf"); }
+@font-face { font-family: Hafs; src: url("fonts/hafs.18.ttf"); }
+@font-face { font-family: ThSans; src: url("fonts/thmanyahsans12_black.otf"); }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1920px; height: 1080px; overflow: hidden; background: #020a1c; }
+.stage { position: relative; width: 1920px; height: 1080px; overflow: hidden;
+  background:
+    radial-gradient(760px 760px at 1430px 470px, rgba(255,226,150,.55), rgba(120,180,255,.35) 35%, transparent 70%),
+    radial-gradient(1200px 900px at 300px 600px, rgba(20,60,140,.55), transparent 70%),
+    linear-gradient(160deg, #0a2350 0%, #061636 50%, #020a1c 100%); }
+.layer { position: absolute; inset: 0; }
+#name path { fill: url(#gold); }
+.reciter { position: absolute; left: 930px; top: 70px; height: 1260px;
+  filter: drop-shadow(0 0 3px rgba(255,220,140,.9)) drop-shadow(0 0 28px rgba(255,205,110,.55)) drop-shadow(-30px 30px 40px rgba(0,0,0,.7)); }
+.left { position: absolute; left: 50px; top: 70px; width: 900px; text-align: center; }
+.sura-s { font-family: Hafs; font-size: 150px; line-height: 1; color: #eaf3ff;
+  text-shadow: 0 6px 20px rgba(0,0,0,.7); }
+.kahf { font-family: Hafs; font-size: 360px; line-height: 1; margin-top: -10px; color: transparent;
+  background: linear-gradient(180deg, #fffbe8 0%, #ffe39a 30%, #e2a93f 62%, #9c6a1c 82%, #ffe7a6 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-stroke: 3px rgba(255,240,200,.55);
+  filter: drop-shadow(0 5px 0 #5a3a0c) drop-shadow(0 18px 30px rgba(0,0,0,.8)) drop-shadow(0 0 40px rgba(255,200,90,.35)); }
+.badge { display: inline-flex; align-items: center; gap: 22px; margin-top: 30px;
+  font-family: ThSans; font-size: 64px; color: #fff; padding: 10px 56px 18px;
+  border-radius: 999px; border: 3px solid #f3d27e;
+  background: linear-gradient(180deg, #c8102e, #8a0a1f);
+  box-shadow: 0 12px 30px rgba(0,0,0,.55), inset 0 2px 0 rgba(255,255,255,.25); }
+.namebox { position: absolute; left: 70px; top: 845px; width: 980px; height: 190px; }
+.namebox svg { width: 100%; height: 100%; filter: drop-shadow(0 6px 12px rgba(0,0,0,.8)); }
+.frame { position: absolute; inset: 22px; border: 3px solid rgba(243,210,126,.85); border-radius: 18px;
+  box-shadow: inset 0 0 0 9px rgba(243,210,126,.12), inset 0 0 160px rgba(0,0,0,.65); pointer-events: none; }
+.namebox .name-text { width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-family:NameFont; font-size:110px; white-space:nowrap; color:transparent; background:linear-gradient(180deg,#fffbe8,#ffe39a 35%,#d9a13d 70%,#ffe7a6); -webkit-background-clip:text; background-clip:text; }
+</style>
+</head>
+<body>
+<div class="stage">
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <linearGradient id="gold" gradientUnits="userSpaceOnUse" x1="0" y1="554" x2="0" y2="1397">
+      <stop offset="0" stop-color="#fffbe8"/><stop offset=".35" stop-color="#ffe39a"/>
+      <stop offset=".7" stop-color="#d9a13d"/><stop offset="1" stop-color="#ffe7a6"/>
+    </linearGradient>
+    <pattern id="stars" width="140" height="140" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="#9cc6ff" stroke-width="1.4">
+        <rect x="40" y="40" width="60" height="60"/>
+        <rect x="40" y="40" width="60" height="60" transform="rotate(45 70 70)"/>
+        <circle cx="70" cy="70" r="14"/>
+        <path d="M0 70H28M112 70H140M70 0V28M70 112V140"/>
+      </g>
+    </pattern>
+    <linearGradient id="goldV" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff0c2"/><stop offset=".5" stop-color="#d4a650"/><stop offset="1" stop-color="#8a6420"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<svg class="layer" width="1920" height="1080">
+  <rect width="1920" height="1080" fill="url(#stars)" opacity=".08"/>
+  <!-- light rays behind reciter -->
+  <g fill="#ffe7b0" opacity=".10">
+    <path d="M1430 470 L1100 -50 L1220 -50Z"/><path d="M1430 470 L1420 -50 L1520 -50Z"/>
+    <path d="M1430 470 L1760 -50 L1900 -50Z"/><path d="M1430 470 L1980 160 L1980 300Z"/>
+    <path d="M1430 470 L980 280 L980 380Z"/><path d="M1430 470 L1980 620 L1980 760Z"/>
+  </g>
+  <!-- arch halo -->
+  <path d="M1110 1080 V430 C1110 270 1250 160 1450 70 C1650 160 1790 270 1790 430 V1080"
+        fill="none" stroke="url(#goldV)" stroke-width="8" opacity=".9"/>
+  <path d="M1132 1080 V434 C1132 284 1262 180 1450 96 C1638 180 1768 284 1768 434 V1080"
+        fill="none" stroke="#f3d27e" stroke-width="2" opacity=".55"/>
+  <circle cx="1450" cy="58" r="13" fill="url(#goldV)"/>
+</svg>
+
+<img class="reciter" src="reciter.png">
+
+<div class="left">
+  <div class="sura-s">سُورَةُ</div>
+  <div class="kahf fit">{{SURA_NAME}}</div>
+  <div class="badge">{{TAGLINE}}</div>
+</div>
+
+<div class="namebox">{{RECITER_NAME}}</div>
+<div class="frame"></div>
+</div>
+<script>
+/* shrink long titles so they never overflow their box */
+document.fonts.ready.then(() => {
+  for (const el of document.querySelectorAll('.fit')) {
+    el.style.whiteSpace = 'nowrap';
+    let fs = parseFloat(getComputedStyle(el).fontSize);
+    while (el.scrollWidth > el.clientWidth + 2 && fs > 40) { fs -= 4; el.style.fontSize = fs + 'px'; }
+  }
+});
+</script>
+</body>
+</html>

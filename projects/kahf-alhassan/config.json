@@ -1,0 +1,16 @@
+{
+  "sura": 18,
+  "reciter_name": "د. محمد بن أحمد الحسن",
+  "reciter_name_svg": "input/reciter_name.svg",
+  "reciter_photo": "input/reciter.png",
+  "audio": "input/audio.mp3",
+  "youtube_url": null,
+  "timing_source": "auto",
+  "tafsir": true,
+  "tafsir_source": "mukhtasar_ar",
+  "thumb_tagline": "تلاوة كاملة",
+  "thumb_verse": {"aya": 10, "words": [1, 5]},
+  "segment_max_words": 9,
+  "work_dir": "work",
+  "out_dir": "output"
+}

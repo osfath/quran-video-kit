@@ -1,0 +1,18 @@
+# generated per project
+projects/*/work/
+projects/*/output/
+projects/*/input/*.mp3
+projects/*/input/*.wav
+projects/*/input/*.m4a
+*.mp4
+!examples/**/preview-20s.mp4
+
+# Thmanyah fonts: free to USE (personal + commercial) but redistribution/hosting is
+# prohibited by their license → never commit the font files. setup.ps1 copies them
+# from the installed Windows fonts, or download them from the official page (GUIDE.md §8).
+assets/fonts/thmanyah/*
+!assets/fonts/thmanyah/README.md
+
+# python
+__pycache__/
+*.pyc

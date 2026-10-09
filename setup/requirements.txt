@@ -1,0 +1,6 @@
+# Python ≥ 3.10 (tested on 3.14, Windows 11)
+numpy>=1.26
+pillow>=10.0
+yt-dlp>=2026.1.1          # YouTube captions + audio (timing_source youtube/auto)
+faster-whisper>=1.1       # fallback timing when there is no YouTube captions (CPU ok, slow)
+fonttools>=4.50           # optional: inspect font family names (GUIDE.md §8)

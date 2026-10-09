@@ -1,0 +1,44 @@
+<!doctype html>
+<!-- Text measurement page. pipeline/s04_layers.py writes items.js next to a copy of
+     this file and reads the JSON back with `--dump-dom`. Do not edit the markers. -->
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<style>
+@font-face { font-family: Hafs; src: url("fonts/hafs.18.ttf"); }
+@font-face { font-family: ThSans; src: url("fonts/thmanyahsans12_medium.otf"); }
+body { margin: 0; }
+.wrap { white-space: normal; }
+.nowrap { white-space: nowrap; display: inline-block; }
+</style></head>
+<body>
+<div id="box"></div>
+<pre id="out"></pre>
+<script src="items.js"></script>
+<script>
+Promise.all([document.fonts.load('40px Hafs'), document.fonts.load('40px ThSans')]).then(() => {
+  const res = {};
+  const box = document.getElementById('box');
+  for (const it of ITEMS) {
+    const el = document.createElement('div');
+    el.style.fontFamily = it.font; el.style.fontSize = it.size + 'px';
+    if (it.width) {                      // wrap into lines
+      el.className = 'wrap'; el.style.width = it.width + 'px'; el.style.lineHeight = '1.6';
+      const words = it.text.split(' ');
+      words.forEach((w, i) => { const s = document.createElement('span'); s.textContent = w; el.appendChild(s);
+        if (i < words.length - 1) el.appendChild(document.createTextNode(' ')); });
+      box.appendChild(el);
+      const lines = []; let top = null;
+      for (const s of el.querySelectorAll('span')) {
+        const t = Math.round(s.getBoundingClientRect().top);
+        if (t !== top) { lines.push([]); top = t; }
+        lines[lines.length - 1].push(s.textContent);
+      }
+      res[it.id] = lines.map(l => l.join(' '));
+    } else {                             // single-line width
+      el.className = 'nowrap'; el.textContent = it.text; box.appendChild(el);
+      res[it.id] = el.getBoundingClientRect().width;
+    }
+  }
+  document.getElementById('out').textContent = 'JSONSTART' + JSON.stringify(res) + 'JSONEND';
+});
+</script>
+</body></html>

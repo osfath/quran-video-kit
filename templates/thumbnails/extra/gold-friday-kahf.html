@@ -1,0 +1,64 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><style>
+@font-face { font-family: NameFont; src: url("fonts/thmanyahsans12_black.otf"); }
+@font-face { font-family: Hafs; src: url("fonts/hafs.18.ttf"); }
+@font-face { font-family: ThSans; src: url("fonts/thmanyahsans12_black.otf"); }
+@font-face { font-family: ThSansM; src: url("fonts/thmanyahsans12_bold.otf"); }
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:1920px; height:1080px; overflow:hidden; }
+.stage { position:relative; width:1920px; height:1080px; overflow:hidden; }
+.layer { position:absolute; inset:0; }
+.namebox svg { width:100%; height:100%; }
+
+.stage { background:
+  radial-gradient(700px 700px at 1450px 430px, rgba(255,190,90,.40), transparent 70%),
+  radial-gradient(900px 600px at 450px 900px, rgba(120,70,10,.30), transparent 70%),
+  linear-gradient(180deg,#120c04,#050302); }
+#name path { fill:url(#gold); }
+.reciter { position:absolute; left:960px; top:60px; height:1250px;
+  filter: drop-shadow(0 0 4px rgba(255,210,130,.9)) drop-shadow(0 0 40px rgba(255,170,60,.45)) drop-shadow(-30px 30px 40px rgba(0,0,0,.8)); }
+.moon { position:absolute; left:1690px; top:50px; width:170px; height:170px; border-radius:50%;
+  box-shadow: inset -36px 6px 0 0 #ffe3a0; filter: drop-shadow(0 0 40px rgba(255,220,140,.7)); opacity:.9; }
+.left { position:absolute; left:60px; top:60px; width:900px; text-align:center; }
+.tag { display:inline-block; font-family:ThSansM; font-size:52px; color:#1a1004; padding:6px 44px 14px;
+  background:linear-gradient(180deg,#ffe7a6,#d9a13d); border-radius:10px; box-shadow:0 10px 24px rgba(0,0,0,.6); }
+.big { font-family:Hafs; font-size:330px; line-height:1.05; margin-top:10px; color:transparent; background:linear-gradient(180deg,#fffbe8 0%,#ffe39a 30%,#e2a93f 62%,#9c6a1c 82%,#ffe7a6 100%);
+ -webkit-background-clip:text; background-clip:text;
+  filter: drop-shadow(0 5px 0 #4a2f08) drop-shadow(0 0 50px rgba(255,180,60,.45)); }
+.hook { font-family:ThSans; font-size:76px; color:#fff; margin-top:-6px; text-shadow:0 6px 20px rgba(0,0,0,.8); }
+.hook span { color:#ffd47a; }
+.namebox { position:absolute; left:60px; top:850px; width:900px; height:180px; filter:drop-shadow(0 6px 12px #000); }
+.line { position:absolute; left:160px; top:820px; width:700px; height:3px;
+  background:linear-gradient(90deg,transparent,#e9c36e,transparent); }
+.namebox .name-text { width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-family:NameFont; font-size:110px; white-space:nowrap; color:transparent; background:linear-gradient(180deg,#fffbe8,#ffe39a 35%,#d9a13d 70%,#ffe7a6); -webkit-background-clip:text; background-clip:text; }
+</style></head><body><div class="stage"><svg width="0" height="0" style="position:absolute"><defs>
+<linearGradient id="gold" gradientUnits="userSpaceOnUse" x1="0" y1="554" x2="0" y2="1397">
+ <stop offset="0" stop-color="#fffbe8"/><stop offset=".35" stop-color="#ffe39a"/><stop offset=".7" stop-color="#d9a13d"/><stop offset="1" stop-color="#ffe7a6"/></linearGradient>
+<linearGradient id="green" gradientUnits="userSpaceOnUse" x1="0" y1="554" x2="0" y2="1397">
+ <stop offset="0" stop-color="#1d6b4f"/><stop offset="1" stop-color="#0b3b2b"/></linearGradient>
+<linearGradient id="goldV" x1="0" y1="0" x2="0" y2="1">
+ <stop offset="0" stop-color="#fff0c2"/><stop offset=".5" stop-color="#d4a650"/><stop offset="1" stop-color="#8a6420"/></linearGradient>
+<pattern id="stars" width="140" height="140" patternUnits="userSpaceOnUse"><g fill="none" stroke="currentColor" stroke-width="1.4">
+ <rect x="40" y="40" width="60" height="60"/><rect x="40" y="40" width="60" height="60" transform="rotate(45 70 70)"/>
+ <circle cx="70" cy="70" r="14"/><path d="M0 70H28M112 70H140M70 0V28M70 112V140"/></g></pattern>
+</defs></svg>
+<svg class="layer" width="1920" height="1080" style="color:#ffcf7a"><rect width="1920" height="1080" fill="url(#stars)" opacity=".06"/></svg>
+<div class="moon"></div>
+<img class="reciter" src="reciter.png">
+<div class="left">
+  <div class="tag">يوم الجمعة</div>
+  <div class="big fit">{{SURA_NAME}}</div>
+  <div class="hook">نورٌ <span>ما بين الجمعتين</span></div>
+</div>
+<div class="line"></div>
+<div class="namebox">{{RECITER_NAME}}</div>
+</div><script>
+/* shrink long titles so they never overflow their box */
+document.fonts.ready.then(() => {
+  for (const el of document.querySelectorAll('.fit')) {
+    el.style.whiteSpace = 'nowrap';
+    let fs = parseFloat(getComputedStyle(el).fontSize);
+    while (el.scrollWidth > el.clientWidth + 2 && fs > 40) { fs -= 4; el.style.fontSize = fs + 'px'; }
+  }
+});
+</script>
+</body></html>
